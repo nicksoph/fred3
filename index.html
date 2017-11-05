@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Load the Paper.js library -->
+  <!-- <script src="./libs/papermin.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js"></script>
+  <!-- and the program -->
+  <script src="./js/dots.js" charset="utf-8" type="text/paperscript" canvas="canvas"> </script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Heading</h1>
+  </header>
+  <div class="page-wrapper">
+    <div class="left-column">
+      <div id="form">
+        <br>
+        <lable class="toggletext">Background</lable>
+        <br>
+        <input id="background" type="checkbox">
+        <br>
+        <br>
+        <lable class="toggletext">Ordered</lable>
+        <br>
+        <input id="ordered" type="checkbox">
+        <br>
+        <br>
+        <lable class="toggletext">Monochrome</lable>
+        <br>
+        <input id="monochrome" type="checkbox">
+        <br>
+        <br>
+        <lable id="col" class="toggletext mono" for="colorWell">Colour</lable>
+        <br>
+        <input type="color" value="#7f7f7f" id="colorWell" class="mono">
+        <br>
+        <br>
+        <lable class="toggletext">Dot Colour Randomness</lable>
+        <input id="slide1" type="range" min="0" max="1" step="any" value="0">
+        <br>
+        <br>
+        <div class="submitneeded">
+          <br>
+          <form id="data" onsubmit="return false;" method="post" name="formData">
+            <lable class="toggletext" id="leftmost">&#8470; of Dots</lable>
+            <br>
+            <input type="number" name="dotnum" id="dotnum" value=1000 />
+            <br>
+            <br>
+            <lable class="toggletext">Size of Dots</lable>
+            <br>
+            <input type="number" name="dotsize" id="dotsize" value=650 />
+            <br>
+            <br>
+            <br>
+            <input type="submit" name="submit" id="drawdots" value="Draw Dots" />
+            <br>
+          </form>
+          <br>
+        </div>
+        <div>
+          <br>
+          <input class="" type="submit" name="download" id="download" value="Download" />
+        </div>
+        </form>
+      </div>
+      <!-- end of form div -->
+    </div>
+    <!-- end of left column div -->
+    <div class="right-column">
+      <canvas id="canvas" resize></canvas>
+    </div>
+    <!-- end of right column div -->
+  </div>
+  <!-- end of page-wrapper column div -->
+
+  <!-- default image inserted but hidden -->
+  <img id="mona" style="display: none;" src="./images/mona.jpg">
+</body>
+
+</html>
