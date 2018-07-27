@@ -4,7 +4,7 @@
 <head>
   <!-- Load the Paper.js library -->
   <!-- <script src="./libs/papermin.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js"></script>
+  <script src="./js/paper-full.min.js"></script>
   <!-- and the program -->
   <script src="./js/dots.js" charset="utf-8" type="text/paperscript" canvas="canvas"> </script>
   <link rel="stylesheet" href="./css/styles.css">
@@ -39,7 +39,7 @@
         <br>
         <br>
         <lable class="toggletext">Dot Colour Randomness</lable>
-        <input id="slide1" type="range" min="0" max="1" step="any" value="0">
+        <input id="rndColSlider" type="range" min="0" max="1" step="any" value="0">
         <br>
         <br>
         <div class="submitneeded">
@@ -78,7 +78,7 @@
   <!-- end of page-wrapper column div -->
 
   <!-- default image inserted but hidden -->
-  <img id="mona" style="display: none;" src="./images/mona.jpg">
+  <img id="backimage" style="display: none;" src="./images/mona.jpg">
 </body>
 
 </html>
