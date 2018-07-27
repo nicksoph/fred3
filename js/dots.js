@@ -1,10 +1,10 @@
-alert("How this works\n\nNote: If you are using this on a mobile device, this version won't work and it's probably best to stop now and go again when you are on a computer.\n\nThe program's main feature is that it allows you to drag and drop an image from your computer onto this window to use the colours from that image.\n\nPlay with the buttons and numbers at the left to see what else you can do to create your image.\n\nYou can save the currently displayed image by clicking on 'Download'. Please note downloading can take a while (and takes longer the larger the number of dots) and currently does not give any feedback other than your browser showing when the file has finished downloading.\n\nThe downloaded file can be opened in a web browser and contains the image in a file format that can be scaled to any size without effecting the quality.\n\nI'd appreciate any comments or thoughts as I develop this. x");
+//alert("How this works\n\nNote: If you are using this on a mobile device, this version won't work and it's probably best to stop now and go again when you are on a computer.\n\nThe program's main feature is that it allows you to drag and drop an image from your computer onto this window to use the colours from that image.\n\nPlay with the buttons and numbers at the left to see what else you can do to create your image.\n\nYou can save the currently displayed image by clicking on 'Download'. Please note downloading can take a while (and takes longer the larger the number of dots) and currently does not give any feedback other than your browser showing when the file has finished downloading.\n\nThe downloaded file can be opened in a web browser and contains the image in a file format that can be scaled to any size without effecting the quality.\n\nI'd appreciate any comments or thoughts as I develop this. x");
 
 
 // GLOBAL variables
 var dotsBackground = new Raster('backimage'); //the default image loaded from html page
 var dots; // Array to hold the data the dots will be drawn from
-var info; // will become dots[0] and hold info about that dot and variables
+var info; // will become dots[0] and hold info about dot[0] and info that applies to all dots
 var drawGroup; // will be the drawing without background
 var drawArea; // used to draw a line around print 
 var resizeTimeout;
@@ -18,7 +18,7 @@ onSubmitValues();
 
 function setInitialState() {
   console.log("setInitialState");
-  // set constants and variables for initisation
+  // set constants and variables for initialisation
   dots = [];
   dots.push({
     rawLen: 10.209636138,
@@ -43,10 +43,11 @@ function setInitialState() {
     viewX: view.bounds.width - 100,
     viewY: view.bounds.height,
     colourSized: true,
-    imageTitle: ""
+    imageTitle: "",
+    origin: new Point(info.viewX / 2, info.viewY / 2)
   });
   info = dots[0];
-  info.origin = new Point(info.viewX / 2, info.viewY / 2);
+  //info.origin = new Point(info.viewX / 2, info.viewY / 2);
   //Set background image to fill the bounding rectangle of the view:
   dotsBackground.fitBounds(view.bounds, true);
   // Show the background:
@@ -67,9 +68,9 @@ function setInitialState() {
   document.getElementById("ordered").onclick = toggleOrdered;
   document.getElementById("background").onclick = toggleBackground;
   document.getElementById("monochrome").onclick = toggleMonochrome;
-  var slider = document.getElementById("rndColSlider");
+  var RCslider = document.getElementById("rndColSlider");
   console.log("slider");
-  slider.oninput = function () {
+  RCslider.oninput = function () {
     info.dotColRandomisation = this.value;
     drawAllDots();
   };
